@@ -1,0 +1,25 @@
+img,input{
+	display: block;
+	margin:auto;
+}
+#logo{
+	margin-top: 50px;
+}
+#text{
+	width: 600px;
+	height: 40px;
+	margin: auto;
+}
+#menu{
+	display: none;
+	width: 602px;
+	border: 1px solid black;
+	margin: 0 auto;
+	border-top: none
+}
+#menu li{
+	line-height: 30px;
+}
+#menu li:hover{
+	background-color: #ccc
+}

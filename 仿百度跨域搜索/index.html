@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>山寨版百度</title>
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+
+</head>
+<body>
+	<img src="images/bd_logo1.png" id="logo" width="260px">
+	<input type="text" id="text" value="">
+	<ul id="menu">
+		<!-- li的个数和内容 是根据用户输入关键字的情况进行动态改变 -->	
+	</ul>
+	<script>
+			var oText=document.getElementById("text");
+				oText.onkeyup=function(){
+				//松开键盘
+				var val=this.value;//获取文本框的内容
+				var oScript=document.createElement("script");//创建一个元素节点
+				oScript.src="https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+ val +"&cb=lubin";
+				document.body.appendChild(oScript);
+			}
+			var oMenu=document.getElementById("menu")
+		function lubin(arg){
+			oMenu.innerHTML="";//清楚原始的所有数据
+			var date=arg.s;//补关键词数据
+			if(date.length ==0){//如果没有关键词补全数据
+				oMenu.style.display="none";
+				return;
+			}
+				oMenu.style.display="block";	
+			date.forEach(function(item){
+				var oLi=document.createElement("li");
+				oLi.innerText=item;
+				oMenu.appendChild(oLi);
+				oLi.onclick=function(){
+					window.location.href="http://www.baidu.com/s?wd="+item;
+				}
+			});
+		};
+	</script>
+	
+</body>
+	
+</html>
